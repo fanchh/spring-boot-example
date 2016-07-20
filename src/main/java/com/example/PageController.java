@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,9 @@ public class PageController {
     // 从 application.properties 中读取配置，如取不到默认值为Hello Shanhy
     @Value("${application.hell:Hello Shanhy}")
     private String hello = "Hello Shanhy";
+    
+    @Resource
+    private SendMessage sendMessage;
 
     @Autowired
     private StudentDao studentDao;
@@ -29,6 +34,8 @@ public class PageController {
     @RequestMapping("/likeName")
     @ResponseBody
     public List<Student> likeName(@RequestParam String name){
+    	for(int i=0;i<5;i++)
+    		sendMessage.sendMessage("sdf");
         return studentDao.likeName(name);
     }
     

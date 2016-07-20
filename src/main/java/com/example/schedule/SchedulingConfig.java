@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
-import com.example.JmsProducerService;
+
 
 /**
  * 定时任务配置类
@@ -26,10 +26,10 @@ public class SchedulingConfig {
    // @Resource
    // private JmsProducerService jmsProducerService;
 
-    @Scheduled(cron = "0/20 * * * * ?") // 每20秒执行一次
+    @Scheduled(cron = "0/5 * * * * ?") // 每20秒执行一次
     public void scheduler() {
         logger.info(">>>>>>>>>>>>> scheduled ... ");
-       // jmsProducerService.sendMsg("mqsss");
+    //    jmsProducerService.sendMsg("mqsss");
     }
 
 }

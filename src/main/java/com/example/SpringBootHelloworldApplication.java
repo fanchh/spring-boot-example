@@ -6,9 +6,11 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ImportResource;
 
 @ServletComponentScan
 @SpringBootApplication
+@ImportResource({ "classpath:spring/applicationContext.xml" })
 public class SpringBootHelloworldApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {

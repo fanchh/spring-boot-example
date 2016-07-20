@@ -5,7 +5,7 @@ import java.util.Date;
 public class OrderEntity {
     private String ordercode;
 
-    private Date accountdate;
+    private String accountdate;
 
     private Integer amount;
 
@@ -113,7 +113,7 @@ public class OrderEntity {
 
     private Integer ordercount;
 
-    private Date orderdate;
+    private String orderdate;
 
     private Integer orderprice;
 
@@ -215,13 +215,6 @@ public class OrderEntity {
         this.ordercode = ordercode == null ? null : ordercode.trim();
     }
 
-    public Date getAccountdate() {
-        return accountdate;
-    }
-
-    public void setAccountdate(Date accountdate) {
-        this.accountdate = accountdate;
-    }
 
     public Integer getAmount() {
         return amount;
@@ -647,15 +640,23 @@ public class OrderEntity {
         this.ordercount = ordercount;
     }
 
-    public Date getOrderdate() {
-        return orderdate;
-    }
+    public String getAccountdate() {
+		return accountdate;
+	}
 
-    public void setOrderdate(Date orderdate) {
-        this.orderdate = orderdate;
-    }
+	public void setAccountdate(String accountdate) {
+		this.accountdate = accountdate;
+	}
 
-    public Integer getOrderprice() {
+	public String getOrderdate() {
+		return orderdate;
+	}
+
+	public void setOrderdate(String orderdate) {
+		this.orderdate = orderdate;
+	}
+
+	public Integer getOrderprice() {
         return orderprice;
     }
 

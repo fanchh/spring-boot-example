@@ -5,13 +5,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.dao.OrderDao;
+import com.example.entity.OrderEntity;
 
 @RestController
 @RequestMapping("/hello")
 public class HelloController {
+	private Logger log = Logger.getLogger(HelloController.class);
+	@Autowired
+	private OrderDao orderDao;
 
     @RequestMapping
     public String hello() {
@@ -36,4 +46,15 @@ public class HelloController {
         }
         return list;
     }
+    @RequestMapping("/insert.ajax")
+    @ResponseBody
+    public String getInfo(OrderEntity orderEntity) {
+    	if (StringUtils.isEmpty(orderEntity.getOrdercode())){  
+    		log.error("主键订单号不能为空!");
+    		return "error";
+    	}
+    	orderDao.insertSelective(orderEntity);
+       return "done";
+    }
+
 }

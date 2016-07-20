@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.dao.OrderDao" >
+  <resultMap id="BaseResultMap" type="com.example.entity.OrderEntity" >
+    <id column="orderCode" property="ordercode" jdbcType="VARCHAR" />
+    <result column="accountDate" property="accountdate" jdbcType="TIMESTAMP" />
+    <result column="amount" property="amount" jdbcType="INTEGER" />
+    <result column="billOweAmt" property="billoweamt" jdbcType="INTEGER" />
+    <result column="billReceiveAmt" property="billreceiveamt" jdbcType="INTEGER" />
+    <result column="billSumAmt" property="billsumamt" jdbcType="INTEGER" />
+    <result column="brandCode" property="brandcode" jdbcType="INTEGER" />
+    <result column="brandName" property="brandname" jdbcType="VARCHAR" />
+    <result column="businessMode" property="businessmode" jdbcType="INTEGER" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="consignee" property="consignee" jdbcType="VARCHAR" />
+    <result column="consigneeAddr" property="consigneeaddr" jdbcType="VARCHAR" />
+    <result column="consigneeMobile" property="consigneemobile" jdbcType="VARCHAR" />
+    <result column="consigneeTel" property="consigneetel" jdbcType="VARCHAR" />
+    <result column="costPrice" property="costprice" jdbcType="INTEGER" />
+    <result column="custCode" property="custcode" jdbcType="VARCHAR" />
+    <result column="custMail" property="custmail" jdbcType="VARCHAR" />
+    <result column="custMobile" property="custmobile" jdbcType="VARCHAR" />
+    <result column="custName" property="custname" jdbcType="VARCHAR" />
+    <result column="custTel" property="custtel" jdbcType="VARCHAR" />
+    <result column="deliveryDate" property="deliverydate" jdbcType="VARCHAR" />
+    <result column="deliveryItemNo" property="deliveryitemno" jdbcType="VARCHAR" />
+    <result column="deliveryNo" property="deliveryno" jdbcType="VARCHAR" />
+    <result column="fCode" property="fcode" jdbcType="VARCHAR" />
+    <result column="fhAddr" property="fhaddr" jdbcType="VARCHAR" />
+    <result column="fhCity" property="fhcity" jdbcType="VARCHAR" />
+    <result column="fhContact" property="fhcontact" jdbcType="VARCHAR" />
+    <result column="fhMobile" property="fhmobile" jdbcType="VARCHAR" />
+    <result column="fhPoi" property="fhpoi" jdbcType="VARCHAR" />
+    <result column="fhProvince" property="fhprovince" jdbcType="VARCHAR" />
+    <result column="fhRegin" property="fhregin" jdbcType="VARCHAR" />
+    <result column="fhReginCode" property="fhregincode" jdbcType="VARCHAR" />
+    <result column="fhStorageCode" property="fhstoragecode" jdbcType="VARCHAR" />
+    <result column="fhTel" property="fhtel" jdbcType="VARCHAR" />
+    <result column="goodsCode" property="goodscode" jdbcType="VARCHAR" />
+    <result column="goodsDate" property="goodsdate" jdbcType="VARCHAR" />
+    <result column="goodsLife" property="goodslife" jdbcType="VARCHAR" />
+    <result column="goodsName" property="goodsname" jdbcType="VARCHAR" />
+    <result column="height" property="height" jdbcType="VARCHAR" />
+    <result column="installDate" property="installdate" jdbcType="VARCHAR" />
+    <result column="installWay" property="installway" jdbcType="INTEGER" />
+    <result column="invoiceAddress" property="invoiceaddress" jdbcType="VARCHAR" />
+    <result column="invoiceBank" property="invoicebank" jdbcType="VARCHAR" />
+    <result column="invoiceDesc" property="invoicedesc" jdbcType="VARCHAR" />
+    <result column="invoiceName" property="invoicename" jdbcType="VARCHAR" />
+    <result column="invoiceNo" property="invoiceno" jdbcType="VARCHAR" />
+    <result column="invoiceType" property="invoicetype" jdbcType="VARCHAR" />
+    <result column="isCharge" property="ischarge" jdbcType="VARCHAR" />
+    <result column="isInvoice" property="isinvoice" jdbcType="INTEGER" />
+    <result column="isShehui" property="isshehui" jdbcType="INTEGER" />
+    <result column="isXiaoV" property="isxiaov" jdbcType="INTEGER" />
+    <result column="isYue" property="isyue" jdbcType="INTEGER" />
+    <result column="length" property="length" jdbcType="VARCHAR" />
+    <result column="orderCode1" property="ordercode1" jdbcType="VARCHAR" />
+    <result column="orderCount" property="ordercount" jdbcType="INTEGER" />
+    <result column="orderDate" property="orderdate" jdbcType="TIMESTAMP" />
+    <result column="orderPrice" property="orderprice" jdbcType="INTEGER" />
+    <result column="originId" property="originid" jdbcType="VARCHAR" />
+    <result column="partnerCode" property="partnercode" jdbcType="VARCHAR" />
+    <result column="partnerName" property="partnername" jdbcType="VARCHAR" />
+    <result column="partnerType" property="partnertype" jdbcType="INTEGER" />
+    <result column="payType" property="paytype" jdbcType="INTEGER" />
+    <result column="pickupType" property="pickuptype" jdbcType="INTEGER" />
+    <result column="poiPoint" property="poipoint" jdbcType="VARCHAR" />
+    <result column="prdCode" property="prdcode" jdbcType="INTEGER" />
+    <result column="prdCode1" property="prdcode1" jdbcType="INTEGER" />
+    <result column="prdName" property="prdname" jdbcType="VARCHAR" />
+    <result column="prdName1" property="prdname1" jdbcType="VARCHAR" />
+    <result column="printFlag" property="printflag" jdbcType="INTEGER" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="regin" property="regin" jdbcType="VARCHAR" />
+    <result column="reginCode" property="regincode" jdbcType="INTEGER" />
+    <result column="reginId" property="reginid" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="INTEGER" />
+    <result column="returnSourceCode" property="returnsourcecode" jdbcType="VARCHAR" />
+    <result column="returnSourceItem" property="returnsourceitem" jdbcType="VARCHAR" />
+    <result column="reviseFlag" property="reviseflag" jdbcType="INTEGER" />
+    <result column="reviseSourceCode" property="revisesourcecode" jdbcType="VARCHAR" />
+    <result column="reviseSourceItem" property="revisesourceitem" jdbcType="VARCHAR" />
+    <result column="salesCode" property="salescode" jdbcType="VARCHAR" />
+    <result column="salesName" property="salesname" jdbcType="VARCHAR" />
+    <result column="seriesCode" property="seriescode" jdbcType="VARCHAR" />
+    <result column="seriesName" property="seriesname" jdbcType="VARCHAR" />
+    <result column="serviceCode" property="servicecode" jdbcType="VARCHAR" />
+    <result column="sourceClass" property="sourceclass" jdbcType="INTEGER" />
+    <result column="sourceCode" property="sourcecode" jdbcType="VARCHAR" />
+    <result column="specialFlag" property="specialflag" jdbcType="VARCHAR" />
+    <result column="storageCode" property="storagecode" jdbcType="VARCHAR" />
+    <result column="storageType" property="storagetype" jdbcType="INTEGER" />
+    <result column="storeCode" property="storecode" jdbcType="VARCHAR" />
+    <result column="sumAmt" property="sumamt" jdbcType="INTEGER" />
+    <result column="taojiNo" property="taojino" jdbcType="VARCHAR" />
+    <result column="typeClass" property="typeclass" jdbcType="VARCHAR" />
+    <result column="typeCode" property="typecode" jdbcType="VARCHAR" />
+    <result column="unitCode" property="unitcode" jdbcType="VARCHAR" />
+    <result column="unitName" property="unitname" jdbcType="VARCHAR" />
+    <result column="volume" property="volume" jdbcType="VARCHAR" />
+    <result column="volumeUnit" property="volumeunit" jdbcType="VARCHAR" />
+    <result column="weight" property="weight" jdbcType="VARCHAR" />
+    <result column="weightUnit" property="weightunit" jdbcType="VARCHAR" />
+    <result column="width" property="width" jdbcType="VARCHAR" />
+    <result column="yueType" property="yuetype" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    orderCode, accountDate, amount, billOweAmt, billReceiveAmt, billSumAmt, brandCode, 
+    brandName, businessMode, city, consignee, consigneeAddr, consigneeMobile, consigneeTel, 
+    costPrice, custCode, custMail, custMobile, custName, custTel, deliveryDate, deliveryItemNo, 
+    deliveryNo, fCode, fhAddr, fhCity, fhContact, fhMobile, fhPoi, fhProvince, fhRegin, 
+    fhReginCode, fhStorageCode, fhTel, goodsCode, goodsDate, goodsLife, goodsName, height, 
+    installDate, installWay, invoiceAddress, invoiceBank, invoiceDesc, invoiceName, invoiceNo, 
+    invoiceType, isCharge, isInvoice, isShehui, isXiaoV, isYue, length, orderCode1, orderCount, 
+    orderDate, orderPrice, originId, partnerCode, partnerName, partnerType, payType, 
+    pickupType, poiPoint, prdCode, prdCode1, prdName, prdName1, printFlag, province, 
+    regin, reginCode, reginId, remark, returnSourceCode, returnSourceItem, reviseFlag, 
+    reviseSourceCode, reviseSourceItem, salesCode, salesName, seriesCode, seriesName, 
+    serviceCode, sourceClass, sourceCode, specialFlag, storageCode, storageType, storeCode, 
+    sumAmt, taojiNo, typeClass, typeCode, unitCode, unitName, volume, volumeUnit, weight, 
+    weightUnit, width, yueType
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_order
+    where orderCode = #{ordercode,jdbcType=VARCHAR}
+  </select>
+  <insert id="insertSelective" parameterType="com.example.entity.OrderEntity" >
+    insert into t_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ordercode != null" >
+        orderCode,
+      </if>
+      <if test="accountdate != null" >
+        accountDate,
+      </if>
+      <if test="amount != null" >
+        amount,
+      </if>
+      <if test="billoweamt != null" >
+        billOweAmt,
+      </if>
+      <if test="billreceiveamt != null" >
+        billReceiveAmt,
+      </if>
+      <if test="billsumamt != null" >
+        billSumAmt,
+      </if>
+      <if test="brandcode != null" >
+        brandCode,
+      </if>
+      <if test="brandname != null" >
+        brandName,
+      </if>
+      <if test="businessmode != null" >
+        businessMode,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="consignee != null" >
+        consignee,
+      </if>
+      <if test="consigneeaddr != null" >
+        consigneeAddr,
+      </if>
+      <if test="consigneemobile != null" >
+        consigneeMobile,
+      </if>
+      <if test="consigneetel != null" >
+        consigneeTel,
+      </if>
+      <if test="costprice != null" >
+        costPrice,
+      </if>
+      <if test="custcode != null" >
+        custCode,
+      </if>
+      <if test="custmail != null" >
+        custMail,
+      </if>
+      <if test="custmobile != null" >
+        custMobile,
+      </if>
+      <if test="custname != null" >
+        custName,
+      </if>
+      <if test="custtel != null" >
+        custTel,
+      </if>
+      <if test="deliverydate != null" >
+        deliveryDate,
+      </if>
+      <if test="deliveryitemno != null" >
+        deliveryItemNo,
+      </if>
+      <if test="deliveryno != null" >
+        deliveryNo,
+      </if>
+      <if test="fcode != null" >
+        fCode,
+      </if>
+      <if test="fhaddr != null" >
+        fhAddr,
+      </if>
+      <if test="fhcity != null" >
+        fhCity,
+      </if>
+      <if test="fhcontact != null" >
+        fhContact,
+      </if>
+      <if test="fhmobile != null" >
+        fhMobile,
+      </if>
+      <if test="fhpoi != null" >
+        fhPoi,
+      </if>
+      <if test="fhprovince != null" >
+        fhProvince,
+      </if>
+      <if test="fhregin != null" >
+        fhRegin,
+      </if>
+      <if test="fhregincode != null" >
+        fhReginCode,
+      </if>
+      <if test="fhstoragecode != null" >
+        fhStorageCode,
+      </if>
+      <if test="fhtel != null" >
+        fhTel,
+      </if>
+      <if test="goodscode != null" >
+        goodsCode,
+      </if>
+      <if test="goodsdate != null" >
+        goodsDate,
+      </if>
+      <if test="goodslife != null" >
+        goodsLife,
+      </if>
+      <if test="goodsname != null" >
+        goodsName,
+      </if>
+      <if test="height != null" >
+        height,
+      </if>
+      <if test="installdate != null" >
+        installDate,
+      </if>
+      <if test="installway != null" >
+        installWay,
+      </if>
+      <if test="invoiceaddress != null" >
+        invoiceAddress,
+      </if>
+      <if test="invoicebank != null" >
+        invoiceBank,
+      </if>
+      <if test="invoicedesc != null" >
+        invoiceDesc,
+      </if>
+      <if test="invoicename != null" >
+        invoiceName,
+      </if>
+      <if test="invoiceno != null" >
+        invoiceNo,
+      </if>
+      <if test="invoicetype != null" >
+        invoiceType,
+      </if>
+      <if test="ischarge != null" >
+        isCharge,
+      </if>
+      <if test="isinvoice != null" >
+        isInvoice,
+      </if>
+      <if test="isshehui != null" >
+        isShehui,
+      </if>
+      <if test="isxiaov != null" >
+        isXiaoV,
+      </if>
+      <if test="isyue != null" >
+        isYue,
+      </if>
+      <if test="length != null" >
+        length,
+      </if>
+      <if test="ordercode1 != null" >
+        orderCode1,
+      </if>
+      <if test="ordercount != null" >
+        orderCount,
+      </if>
+      <if test="orderdate != null" >
+        orderDate,
+      </if>
+      <if test="orderprice != null" >
+        orderPrice,
+      </if>
+      <if test="originid != null" >
+        originId,
+      </if>
+      <if test="partnercode != null" >
+        partnerCode,
+      </if>
+      <if test="partnername != null" >
+        partnerName,
+      </if>
+      <if test="partnertype != null" >
+        partnerType,
+      </if>
+      <if test="paytype != null" >
+        payType,
+      </if>
+      <if test="pickuptype != null" >
+        pickupType,
+      </if>
+      <if test="poipoint != null" >
+        poiPoint,
+      </if>
+      <if test="prdcode != null" >
+        prdCode,
+      </if>
+      <if test="prdcode1 != null" >
+        prdCode1,
+      </if>
+      <if test="prdname != null" >
+        prdName,
+      </if>
+      <if test="prdname1 != null" >
+        prdName1,
+      </if>
+      <if test="printflag != null" >
+        printFlag,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="regin != null" >
+        regin,
+      </if>
+      <if test="regincode != null" >
+        reginCode,
+      </if>
+      <if test="reginid != null" >
+        reginId,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="returnsourcecode != null" >
+        returnSourceCode,
+      </if>
+      <if test="returnsourceitem != null" >
+        returnSourceItem,
+      </if>
+      <if test="reviseflag != null" >
+        reviseFlag,
+      </if>
+      <if test="revisesourcecode != null" >
+        reviseSourceCode,
+      </if>
+      <if test="revisesourceitem != null" >
+        reviseSourceItem,
+      </if>
+      <if test="salescode != null" >
+        salesCode,
+      </if>
+      <if test="salesname != null" >
+        salesName,
+      </if>
+      <if test="seriescode != null" >
+        seriesCode,
+      </if>
+      <if test="seriesname != null" >
+        seriesName,
+      </if>
+      <if test="servicecode != null" >
+        serviceCode,
+      </if>
+      <if test="sourceclass != null" >
+        sourceClass,
+      </if>
+      <if test="sourcecode != null" >
+        sourceCode,
+      </if>
+      <if test="specialflag != null" >
+        specialFlag,
+      </if>
+      <if test="storagecode != null" >
+        storageCode,
+      </if>
+      <if test="storagetype != null" >
+        storageType,
+      </if>
+      <if test="storecode != null" >
+        storeCode,
+      </if>
+      <if test="sumamt != null" >
+        sumAmt,
+      </if>
+      <if test="taojino != null" >
+        taojiNo,
+      </if>
+      <if test="typeclass != null" >
+        typeClass,
+      </if>
+      <if test="typecode != null" >
+        typeCode,
+      </if>
+      <if test="unitcode != null" >
+        unitCode,
+      </if>
+      <if test="unitname != null" >
+        unitName,
+      </if>
+      <if test="volume != null" >
+        volume,
+      </if>
+      <if test="volumeunit != null" >
+        volumeUnit,
+      </if>
+      <if test="weight != null" >
+        weight,
+      </if>
+      <if test="weightunit != null" >
+        weightUnit,
+      </if>
+      <if test="width != null" >
+        width,
+      </if>
+      <if test="yuetype != null" >
+        yueType,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ordercode != null" >
+        #{ordercode,jdbcType=VARCHAR},
+      </if>
+      <if test="accountdate != null" >
+        #{accountdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=INTEGER},
+      </if>
+      <if test="billoweamt != null" >
+        #{billoweamt,jdbcType=INTEGER},
+      </if>
+      <if test="billreceiveamt != null" >
+        #{billreceiveamt,jdbcType=INTEGER},
+      </if>
+      <if test="billsumamt != null" >
+        #{billsumamt,jdbcType=INTEGER},
+      </if>
+      <if test="brandcode != null" >
+        #{brandcode,jdbcType=INTEGER},
+      </if>
+      <if test="brandname != null" >
+        #{brandname,jdbcType=VARCHAR},
+      </if>
+      <if test="businessmode != null" >
+        #{businessmode,jdbcType=INTEGER},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="consignee != null" >
+        #{consignee,jdbcType=VARCHAR},
+      </if>
+      <if test="consigneeaddr != null" >
+        #{consigneeaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="consigneemobile != null" >
+        #{consigneemobile,jdbcType=VARCHAR},
+      </if>
+      <if test="consigneetel != null" >
+        #{consigneetel,jdbcType=VARCHAR},
+      </if>
+      <if test="costprice != null" >
+        #{costprice,jdbcType=INTEGER},
+      </if>
+      <if test="custcode != null" >
+        #{custcode,jdbcType=VARCHAR},
+      </if>
+      <if test="custmail != null" >
+        #{custmail,jdbcType=VARCHAR},
+      </if>
+      <if test="custmobile != null" >
+        #{custmobile,jdbcType=VARCHAR},
+      </if>
+      <if test="custname != null" >
+        #{custname,jdbcType=VARCHAR},
+      </if>
+      <if test="custtel != null" >
+        #{custtel,jdbcType=VARCHAR},
+      </if>
+      <if test="deliverydate != null" >
+        #{deliverydate,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryitemno != null" >
+        #{deliveryitemno,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryno != null" >
+        #{deliveryno,jdbcType=VARCHAR},
+      </if>
+      <if test="fcode != null" >
+        #{fcode,jdbcType=VARCHAR},
+      </if>
+      <if test="fhaddr != null" >
+        #{fhaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="fhcity != null" >
+        #{fhcity,jdbcType=VARCHAR},
+      </if>
+      <if test="fhcontact != null" >
+        #{fhcontact,jdbcType=VARCHAR},
+      </if>
+      <if test="fhmobile != null" >
+        #{fhmobile,jdbcType=VARCHAR},
+      </if>
+      <if test="fhpoi != null" >
+        #{fhpoi,jdbcType=VARCHAR},
+      </if>
+      <if test="fhprovince != null" >
+        #{fhprovince,jdbcType=VARCHAR},
+      </if>
+      <if test="fhregin != null" >
+        #{fhregin,jdbcType=VARCHAR},
+      </if>
+      <if test="fhregincode != null" >
+        #{fhregincode,jdbcType=VARCHAR},
+      </if>
+      <if test="fhstoragecode != null" >
+        #{fhstoragecode,jdbcType=VARCHAR},
+      </if>
+      <if test="fhtel != null" >
+        #{fhtel,jdbcType=VARCHAR},
+      </if>
+      <if test="goodscode != null" >
+        #{goodscode,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsdate != null" >
+        #{goodsdate,jdbcType=VARCHAR},
+      </if>
+      <if test="goodslife != null" >
+        #{goodslife,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsname != null" >
+        #{goodsname,jdbcType=VARCHAR},
+      </if>
+      <if test="height != null" >
+        #{height,jdbcType=VARCHAR},
+      </if>
+      <if test="installdate != null" >
+        #{installdate,jdbcType=VARCHAR},
+      </if>
+      <if test="installway != null" >
+        #{installway,jdbcType=INTEGER},
+      </if>
+      <if test="invoiceaddress != null" >
+        #{invoiceaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="invoicebank != null" >
+        #{invoicebank,jdbcType=VARCHAR},
+      </if>
+      <if test="invoicedesc != null" >
+        #{invoicedesc,jdbcType=VARCHAR},
+      </if>
+      <if test="invoicename != null" >
+        #{invoicename,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceno != null" >
+        #{invoiceno,jdbcType=VARCHAR},
+      </if>
+      <if test="invoicetype != null" >
+        #{invoicetype,jdbcType=VARCHAR},
+      </if>
+      <if test="ischarge != null" >
+        #{ischarge,jdbcType=VARCHAR},
+      </if>
+      <if test="isinvoice != null" >
+        #{isinvoice,jdbcType=INTEGER},
+      </if>
+      <if test="isshehui != null" >
+        #{isshehui,jdbcType=INTEGER},
+      </if>
+      <if test="isxiaov != null" >
+        #{isxiaov,jdbcType=INTEGER},
+      </if>
+      <if test="isyue != null" >
+        #{isyue,jdbcType=INTEGER},
+      </if>
+      <if test="length != null" >
+        #{length,jdbcType=VARCHAR},
+      </if>
+      <if test="ordercode1 != null" >
+        #{ordercode1,jdbcType=VARCHAR},
+      </if>
+      <if test="ordercount != null" >
+        #{ordercount,jdbcType=INTEGER},
+      </if>
+      <if test="orderdate != null" >
+        #{orderdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderprice != null" >
+        #{orderprice,jdbcType=INTEGER},
+      </if>
+      <if test="originid != null" >
+        #{originid,jdbcType=VARCHAR},
+      </if>
+      <if test="partnercode != null" >
+        #{partnercode,jdbcType=VARCHAR},
+      </if>
+      <if test="partnername != null" >
+        #{partnername,jdbcType=VARCHAR},
+      </if>
+      <if test="partnertype != null" >
+        #{partnertype,jdbcType=INTEGER},
+      </if>
+      <if test="paytype != null" >
+        #{paytype,jdbcType=INTEGER},
+      </if>
+      <if test="pickuptype != null" >
+        #{pickuptype,jdbcType=INTEGER},
+      </if>
+      <if test="poipoint != null" >
+        #{poipoint,jdbcType=VARCHAR},
+      </if>
+      <if test="prdcode != null" >
+        #{prdcode,jdbcType=INTEGER},
+      </if>
+      <if test="prdcode1 != null" >
+        #{prdcode1,jdbcType=INTEGER},
+      </if>
+      <if test="prdname != null" >
+        #{prdname,jdbcType=VARCHAR},
+      </if>
+      <if test="prdname1 != null" >
+        #{prdname1,jdbcType=VARCHAR},
+      </if>
+      <if test="printflag != null" >
+        #{printflag,jdbcType=INTEGER},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="regin != null" >
+        #{regin,jdbcType=VARCHAR},
+      </if>
+      <if test="regincode != null" >
+        #{regincode,jdbcType=INTEGER},
+      </if>
+      <if test="reginid != null" >
+        #{reginid,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=INTEGER},
+      </if>
+      <if test="returnsourcecode != null" >
+        #{returnsourcecode,jdbcType=VARCHAR},
+      </if>
+      <if test="returnsourceitem != null" >
+        #{returnsourceitem,jdbcType=VARCHAR},
+      </if>
+      <if test="reviseflag != null" >
+        #{reviseflag,jdbcType=INTEGER},
+      </if>
+      <if test="revisesourcecode != null" >
+        #{revisesourcecode,jdbcType=VARCHAR},
+      </if>
+      <if test="revisesourceitem != null" >
+        #{revisesourceitem,jdbcType=VARCHAR},
+      </if>
+      <if test="salescode != null" >
+        #{salescode,jdbcType=VARCHAR},
+      </if>
+      <if test="salesname != null" >
+        #{salesname,jdbcType=VARCHAR},
+      </if>
+      <if test="seriescode != null" >
+        #{seriescode,jdbcType=VARCHAR},
+      </if>
+      <if test="seriesname != null" >
+        #{seriesname,jdbcType=VARCHAR},
+      </if>
+      <if test="servicecode != null" >
+        #{servicecode,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceclass != null" >
+        #{sourceclass,jdbcType=INTEGER},
+      </if>
+      <if test="sourcecode != null" >
+        #{sourcecode,jdbcType=VARCHAR},
+      </if>
+      <if test="specialflag != null" >
+        #{specialflag,jdbcType=VARCHAR},
+      </if>
+      <if test="storagecode != null" >
+        #{storagecode,jdbcType=VARCHAR},
+      </if>
+      <if test="storagetype != null" >
+        #{storagetype,jdbcType=INTEGER},
+      </if>
+      <if test="storecode != null" >
+        #{storecode,jdbcType=VARCHAR},
+      </if>
+      <if test="sumamt != null" >
+        #{sumamt,jdbcType=INTEGER},
+      </if>
+      <if test="taojino != null" >
+        #{taojino,jdbcType=VARCHAR},
+      </if>
+      <if test="typeclass != null" >
+        #{typeclass,jdbcType=VARCHAR},
+      </if>
+      <if test="typecode != null" >
+        #{typecode,jdbcType=VARCHAR},
+      </if>
+      <if test="unitcode != null" >
+        #{unitcode,jdbcType=VARCHAR},
+      </if>
+      <if test="unitname != null" >
+        #{unitname,jdbcType=VARCHAR},
+      </if>
+      <if test="volume != null" >
+        #{volume,jdbcType=VARCHAR},
+      </if>
+      <if test="volumeunit != null" >
+        #{volumeunit,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="weightunit != null" >
+        #{weightunit,jdbcType=VARCHAR},
+      </if>
+      <if test="width != null" >
+        #{width,jdbcType=VARCHAR},
+      </if>
+      <if test="yuetype != null" >
+        #{yuetype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

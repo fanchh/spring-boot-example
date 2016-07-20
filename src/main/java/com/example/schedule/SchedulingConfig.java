@@ -26,10 +26,10 @@ public class SchedulingConfig {
    // @Resource
    // private JmsProducerService jmsProducerService;
 
-    @Scheduled(cron = "0/5 * * * * ?") // 每20秒执行一次
-    public void scheduler() {
-        logger.info(">>>>>>>>>>>>> scheduled ... ");
-    //    jmsProducerService.sendMsg("mqsss");
-    }
+//    @Scheduled(cron = "0/5 * * * * ?") // 每20秒执行一次
+//    public void scheduler() {
+//        logger.info(">>>>>>>>>>>>> scheduled ... ");
+//    //    jmsProducerService.sendMsg("mqsss");
+//    }
 
 }

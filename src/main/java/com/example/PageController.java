@@ -28,16 +28,16 @@ public class PageController {
     @Resource
     private SendMessage sendMessage;
 
-    @Autowired
-    private StudentDao studentDao;
-
-    @RequestMapping("/likeName")
-    @ResponseBody
-    public List<Student> likeName(@RequestParam String name){
-    	for(int i=0;i<5;i++)
-    		sendMessage.sendMessage("sdf");
-        return studentDao.likeName(name);
-    }
+//    @Autowired
+//    private StudentDao studentDao;
+//
+//    @RequestMapping("/likeName")
+//    @ResponseBody
+//    public List<Student> likeName(@RequestParam String name){
+//    	for(int i=0;i<5;i++)
+//    		sendMessage.sendMessage("sdf");
+//        return studentDao.likeName(name);
+//    }
     
     /**
      * 默认页<br/>

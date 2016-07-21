@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.alibaba.fastjson.JSON;
 import com.example.dao.OrderDao;
 import com.example.entity.OrderEntity;
 
@@ -23,6 +24,8 @@ public class HelloController {
 	@Autowired
 	private OrderDao orderDao;
 
+	@Autowired
+	private SendMessage sendMessage;
     @RequestMapping
     public String hello() {
         return "Hello Spring-Boot";
@@ -53,7 +56,12 @@ public class HelloController {
     		log.error("主键订单号不能为空!");
     		return "error";
     	}
-    	orderDao.insertSelective(orderEntity);
+    	int count = orderDao.insertSelective(orderEntity);
+    	if(count >0){
+    		String json = JSON.toJSONString(orderEntity);
+    		log.debug(json);
+    		sendMessage.sendMessage(json);
+    	}
        return "done";
     }
 

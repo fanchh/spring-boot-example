@@ -56,7 +56,8 @@ public class HelloController {
     		log.error("主键订单号不能为空!");
     		return "error";
     	}
-    	int count = orderDao.insertSelective(orderEntity);
+    	//int count = orderDao.insertSelective(orderEntity);
+    	int count =1;
     	if(count >0){
     		String json = JSON.toJSONString(orderEntity);
     		log.debug(json);

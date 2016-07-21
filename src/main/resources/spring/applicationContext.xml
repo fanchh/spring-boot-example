@@ -20,5 +20,11 @@
     <property name="defaultDestination" ref="oamTmpTopic" />  
     <property name="explicitQosEnabled" value="true" />  
     <property name="deliveryMode" value="1" />  
-</bean>  
+</bean>
+
+ <bean id="testListener" class="com.example.TestListener">  
+	<constructor-arg ref="jmsTemplate"></constructor-arg>  
+	<constructor-arg value="poc"></constructor-arg>  
+</bean>
+  
 </beans>

@@ -16,7 +16,7 @@ public class SendMessage {
 	@Autowired
     private JmsTemplate jmsTemplate;   
   
-    private String topicName ="poc";   
+    private String topicName;   
   
     private Topic topic;   
   
@@ -30,6 +30,10 @@ public class SendMessage {
         this.topicName = topicName;   
     }   
   
+    public SendMessage(JmsTemplate jmsTemplate,String topicName){
+    	this.jmsTemplate = jmsTemplate; 
+    	this.topicName = topicName; 
+    }
     public void sendMessage(final String message) {
   
   

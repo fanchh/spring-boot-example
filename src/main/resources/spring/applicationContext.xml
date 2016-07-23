@@ -21,4 +21,9 @@
     <property name="explicitQosEnabled" value="true" />  
     <property name="deliveryMode" value="1" />  
 </bean>  
+
+<bean id="sendMessage" class="com.example.SendMessage">  
+	<constructor-arg ref="jmsTemplate"></constructor-arg>  
+	<constructor-arg value="${application.topicname}"></constructor-arg>  
+</bean>
 </beans>

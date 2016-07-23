@@ -52,16 +52,16 @@ public class HelloController {
     @RequestMapping("/insert.ajax")
     @ResponseBody
     public String getInfo(OrderEntity orderEntity) {
-    	if (StringUtils.isEmpty(orderEntity.getOrdercode())){  
-    		log.error("主键订单号不能为空!");
-    		return "error";
-    	}
-    	int count = orderDao.insertSelective(orderEntity);
-    	if(count >0){
+    //	if (StringUtils.isEmpty(orderEntity.getOrdercode())){  
+    //		log.error("主键订单号不能为空!");
+    //		return "error";
+    //	}
+    //	int count = orderDao.insertSelective(orderEntity);
+    //	if(count >0){
     		String json = JSON.toJSONString(orderEntity);
-    		log.debug(json);
+    //		log.debug(json);
     		sendMessage.sendMessage(json);
-    	}
+    //	}
        return "done";
     }
 

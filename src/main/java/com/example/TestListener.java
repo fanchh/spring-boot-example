@@ -3,6 +3,7 @@ package com.example;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
+import javax.jms.Queue;
 import javax.jms.Session;
 import javax.jms.Topic;
 
@@ -31,16 +32,15 @@ public class TestListener implements MessageListener{
         this.jmsTemplate = jmsTemplate;   
            
         this.topicName =  topicName;
-        
-        Topic topic;   
+         
         try {   
-            topic = this.jmsTemplate.getConnectionFactory().createConnection().createSession(false,   
-                    Session.AUTO_ACKNOWLEDGE).createTopic(this.topicName);   
+            Queue queue = this.jmsTemplate.getConnectionFactory().createConnection().createSession(false,   
+                    Session.AUTO_ACKNOWLEDGE).createQueue(this.topicName);   
             System.out.println("消费者主题:"+topicName);   
             DefaultMessageListenerContainer dmc = new DefaultMessageListenerContainer();   
             	//消费者必须是true
             dmc.setPubSubDomain(true);   
-            dmc.setDestination(topic);   
+            dmc.setDestination(queue);   
             dmc.setConnectionFactory(this.jmsTemplate.getConnectionFactory());   
             // true 不接受同一连接池的消息  false 接收
             dmc.setPubSubNoLocal(true);   

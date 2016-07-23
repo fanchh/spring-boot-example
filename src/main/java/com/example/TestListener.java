@@ -9,6 +9,7 @@ import javax.jms.Topic;
 import org.apache.activemq.command.ActiveMQMessage;
 import org.apache.activemq.command.ActiveMQTextMessage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.listener.DefaultMessageListenerContainer;
 
@@ -23,14 +24,13 @@ public class TestListener implements MessageListener{
 	private OrderDao orderDao;
 	
     private JmsTemplate jmsTemplate;   
+    @Value("${application.topicName:poc}")   
+    private String topicName="poc";   
        
-    private String topicName;   
-       
-    public TestListener(JmsTemplate jmsTemplate,String topicName){   
+    public TestListener(JmsTemplate jmsTemplate){   
            
         this.jmsTemplate = jmsTemplate;   
            
-        this.topicName = topicName;   
            
         Topic topic;   
         try {   
@@ -66,7 +66,7 @@ public class TestListener implements MessageListener{
       
       
       
-        System.out.println("消费者:"+JSON.toJSONString(message));   
+        //System.out.println("消费者:"+JSON.toJSONString(message));   
     }   
   
 }  

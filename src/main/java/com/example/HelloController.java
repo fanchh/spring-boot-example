@@ -60,7 +60,7 @@ public class HelloController {
     	int count =1;
     	if(count >0){
     		String json = JSON.toJSONString(orderEntity);
-    		log.debug(json);
+    	//	log.debug(json);
     		sendMessage.sendMessage(json);
     	}
        return "done";

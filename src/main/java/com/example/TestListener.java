@@ -25,7 +25,7 @@ public class TestListener implements MessageListener{
 	
     private JmsTemplate jmsTemplate;   
     @Value("${application.topicName:poc}")   
-    private String topicName="poc";   
+    private String topicName;   
        
     public TestListener(JmsTemplate jmsTemplate){   
            
@@ -36,7 +36,7 @@ public class TestListener implements MessageListener{
         try {   
             topic = this.jmsTemplate.getConnectionFactory().createConnection().createSession(false,   
                     Session.AUTO_ACKNOWLEDGE).createTopic(this.topicName);   
-               
+            System.out.println("消费者主题:"+topicName);   
             DefaultMessageListenerContainer dmc = new DefaultMessageListenerContainer();   
             	//消费者必须是true
             dmc.setPubSubDomain(true);   

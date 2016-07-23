@@ -6,7 +6,7 @@
     <property name="connectionFactory">  
         <bean class="org.apache.activemq.ActiveMQConnectionFactory">  
             <property name="brokerURL"  
-                value="failover:(tcp://liuzhaoxuan.com:61616?wireFormat.maxInactivityDuration=0)&amp;maxReconnectDelay=1000" />  
+                value="failover:(tcp://10.25.77.4:61616?wireFormat.maxInactivityDuration=0)&amp;maxReconnectDelay=1000" />  
         </bean>  
     </property>  
     <property name="maxConnections" value="100"></property>  

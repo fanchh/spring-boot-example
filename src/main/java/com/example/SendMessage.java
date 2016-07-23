@@ -1,7 +1,8 @@
 package com.example;
 
 import javax.jms.JMSException;   
-import javax.jms.Message;   
+import javax.jms.Message;
+import javax.jms.Queue;
 import javax.jms.Session;   
 import javax.jms.TextMessage;   
 import javax.jms.Topic;
@@ -18,7 +19,7 @@ public class SendMessage {
   
     private String topicName;   
   
-    private Topic topic;   
+    private Queue queue;   
   
     public void setJmsTemplate(JmsTemplate jmsTemplate) {
   
@@ -38,14 +39,16 @@ public class SendMessage {
   
   
         try {   
-            if (topic == null) {
+            if (queue == null) {
   
-                topic = jmsTemplate.getConnectionFactory().createConnection()   
+                
+				
+                queue	=jmsTemplate.getConnectionFactory().createConnection()   
                         .createSession(false, Session.AUTO_ACKNOWLEDGE)
   
-                        .createTopic(topicName);   
+                        .createQueue(topicName);   
             }   
-            jmsTemplate.send(topic,new MessageCreator() {
+            jmsTemplate.send(queue,new MessageCreator() {
   
   
                 @Override  

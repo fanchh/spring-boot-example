@@ -63,7 +63,7 @@ public class HelloController {
     		sendMessage.sendMessage(json);
     //	}
     		try {
-				Thread.sleep(5);
+				Thread.sleep(3);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

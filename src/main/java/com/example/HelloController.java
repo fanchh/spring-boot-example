@@ -33,17 +33,17 @@ public class HelloController {
 
     @RequestMapping("/info")
     public Map<String, String> getInfo(@RequestParam String name) {
-        Map<String, String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<String, String>();
         map.put("name", name);
         return map;
     }
 
     @RequestMapping("/list")
     public List<Map<String, String>> getList() {
-        List<Map<String, String>> list = new ArrayList<>();
+        List<Map<String, String>> list = new ArrayList<Map<String, String>>();
         Map<String, String> map = null;
         for (int i = 1; i <= 5; i++) {
-            map = new HashMap<>();
+            map = new HashMap<String, String>();
             map.put("name", "Shanhy-" + i);
             list.add(map);
         }

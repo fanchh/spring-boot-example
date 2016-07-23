@@ -24,6 +24,7 @@
 
  <bean id="testListener" class="com.example.TestListener">  
 	<constructor-arg ref="jmsTemplate"></constructor-arg>  
+	<constructor-arg value="${application.topicname}"></constructor-arg>  
 </bean>
   
 </beans>

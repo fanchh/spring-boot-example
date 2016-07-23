@@ -23,15 +23,15 @@ public class TestListener implements MessageListener{
 	@Autowired
 	private OrderDao orderDao;
 	
-    private JmsTemplate jmsTemplate;   
-    @Value("${application.topicName:poc}")   
+    private JmsTemplate jmsTemplate;     
     private String topicName;   
        
-    public TestListener(JmsTemplate jmsTemplate){   
+    public TestListener(JmsTemplate jmsTemplate,String topicName){   
            
         this.jmsTemplate = jmsTemplate;   
            
-           
+        this.topicName =  topicName;
+        
         Topic topic;   
         try {   
             topic = this.jmsTemplate.getConnectionFactory().createConnection().createSession(false,   
